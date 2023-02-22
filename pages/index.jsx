@@ -1,16 +1,18 @@
-import Popular from "@/components/Popular";
+import Nezz from "@/components/Nezzjos";
+import Suggestions from "@/components/Suggestions";
 import Veggie from "@/components/Veggie";
 import useSWR from "swr";
-import Navbar from "../components/navbar";
 
-//API KEY -- 5eed65202a8b460f89e2e698859e7e2e
 export default function Home() {
 	return (
 		<div>
-			<Navbar />
-
+			<h2>Suggestions</h2>
 			<div className="post-container">
-				<Popular />
+				<Suggestions />
+			</div>
+			<h2 style={{ marginTop: "100px" }}>Nes random</h2>
+			<div className="body-post-container">
+				<Nezz />
 			</div>
 		</div>
 	);
