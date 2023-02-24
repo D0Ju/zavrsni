@@ -6,6 +6,11 @@ import { FaSearch } from "react-icons/fa";
 function OtherRecipes() {
 	const [recipes, setRecipes] = useState([]);
 
+	useEffect(() => {
+		const Suggestionsrecipes = `https://api.spoonacular.com/recipes/random?apiKey=${ApiKey}&includeNutrition=true&number=12`;
+		fetchRecipes(Suggestionsrecipes, false);
+	}, []);
+
 	const fetchRecipes = (url, isRecipes) => {
 		fetcher(url)
 			.then((result) => {
@@ -18,7 +23,6 @@ function OtherRecipes() {
 			.catch((err) => {});
 	};
 
-	//if (!data) return null;
 	const handleKeyDown = (event) => {
 		if (event.key === "Enter") {
 			event.preventDefault();
@@ -27,10 +31,6 @@ function OtherRecipes() {
 		}
 	};
 
-	useEffect(() => {
-		const Suggestionsrecipes = `https://api.spoonacular.com/recipes/random?apiKey=${ApiKey}&includeNutrition=true&number=12`;
-		fetchRecipes(Suggestionsrecipes, false);
-	}, []);
 	return (
 		<div>
 			<h2 id="Title-OtherRecipes" style={{ marginTop: "100px" }}>
