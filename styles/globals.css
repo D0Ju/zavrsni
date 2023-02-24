@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
 
 body {
+	scroll-behavior: smooth;
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
@@ -12,8 +13,13 @@ h2 {
 	margin-bottom: 0px;
 }
 .nav-container {
+	position: fixed;
+	z-index: 10;
+	left: 0;
+	right: 0;
 	top: 0;
 	color: white;
+	width: 100%;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -48,10 +54,17 @@ h2 {
 	border-radius: 25px;
 	overflow: hidden;
 	align-items: end;
+	transition: 0.3s;
+}
+.card:hover {
+	transform: scale(1.1);
 }
 .card h1 {
 	height: fit-content;
 	margin: 1rem;
+}
+.card img {
+	z-index: -1;
 }
 ul {
 	list-style-type: none;
@@ -84,11 +97,33 @@ a {
 button {
 	color: white;
 }
+.flex_center_dish {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
 
 .dish-container {
-	display: flex;
-	flex-direction: column;
-	margin: 200px;
+	display: grid;
+	max-width: 70rem;
+	margin: 5rem;
+	grid-template-columns: repeat(2, 1fr);
+	grid-template-areas:
+		"image title"
+		"image summary"
+		"image summary"
+		"button button"
+		"text text";
+	column-gap: 2rem;
+}
+.grid_1 {
+	grid-area: title;
+}
+.grid_2 {
+	grid-area: image;
+}
+.grid_3 {
+	grid-area: summary;
 }
 p a {
 	color: blue;
@@ -99,4 +134,35 @@ p a {
 	grid-template-columns: repeat(4, 1fr);
 	row-gap: 30px;
 	color: white;
+	width: 100%;
+}
+.searchBar {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 2rem;
+	position: relative;
+	width: fit-content;
+	margin: auto;
+	background: linear-gradient(35deg, #222222, #313131);
+	border-radius: 1rem;
+	overflow: hidden;
+}
+.searchBar svg {
+	padding-left: 10px;
+	color: white;
+}
+.searchBar input {
+	border: none;
+	font-size: 1.5rem;
+	color: white;
+	background: linear-gradient(35deg, #222222, #313131);
+	padding: 10px;
+	outline: none;
+	width: 20rem;
+}
+.splide__track,
+.post-container {
+	padding: 100px 0;
+	margin: -100px 0;
 }

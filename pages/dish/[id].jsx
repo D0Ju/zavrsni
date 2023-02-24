@@ -13,10 +13,15 @@ export default function Dish() {
 	if (!recipe) return <div>Recipe not found</div>;
 	recipe.summary = recipe.summary.replaceAll("<a ", "<a target='_blank' ");
 	return (
-		<div className="dish-container">
-			<h1>{recipe.title}</h1>
-			<img src={recipe.image} alt={recipe.title} />
-			<p dangerouslySetInnerHTML={{ __html: recipe.summary }}></p>
+		<div className="flex_center_dish">
+			<div className="dish-container">
+				<h1 className="grid_1">{recipe.title}</h1>
+				<img src={recipe.image} alt={recipe.title} className="grid_2" />
+				<p
+					dangerouslySetInnerHTML={{ __html: recipe.summary }}
+					className="grid_3"
+				></p>
+			</div>
 		</div>
 	);
 }
