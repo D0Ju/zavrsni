@@ -112,8 +112,8 @@ button {
 		"image title"
 		"image summary"
 		"image summary"
-		"button button"
-		"text text";
+		"segment empty"
+		"instructions instructions";
 	column-gap: 2rem;
 }
 .grid_1 {
@@ -124,6 +124,13 @@ button {
 }
 .grid_3 {
 	grid-area: summary;
+}
+.grid_4 {
+	grid-area: segment;
+}
+.grid_5 {
+	padding-left: 0;
+	grid-area: instructions;
 }
 p a {
 	color: blue;

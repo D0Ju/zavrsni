@@ -21,6 +21,11 @@ export default function Dish() {
 					dangerouslySetInnerHTML={{ __html: recipe.summary }}
 					className="grid_3"
 				></p>
+				<h2 className="grid_4">Instructions</h2>
+				<p
+					dangerouslySetInnerHTML={{ __html: recipe.instructions }}
+					className="grid_5"
+				></p>
 			</div>
 		</div>
 	);
