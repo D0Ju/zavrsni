@@ -173,3 +173,11 @@ p a {
 	padding: 100px 0;
 	margin: -100px 0;
 }
+
+.Loading-container {
+	display: flex;
+	font-size: large;
+	width: fit-content;
+	justify-content: center;
+	align-items: center;
+}

@@ -10,8 +10,15 @@ export default function Dish() {
 		revalidateOnFocus: false,
 	});
 	const recipe = data;
-	if (!recipe) return <div>Recipe not found</div>;
+	if (!recipe)
+		return (
+			<div className="Loading-container">
+				<h1>Loading...</h1>
+			</div>
+		);
+
 	recipe.summary = recipe.summary.replaceAll("<a ", "<a target='_blank' ");
+
 	return (
 		<div className="flex_center_dish">
 			<div className="dish-container">
