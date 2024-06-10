@@ -26,7 +26,7 @@ function OtherRecipes() {
 	const handleKeyDown = (event) => {
 		if (event.key === "Enter") {
 			event.preventDefault();
-			const url = `https://api.spoonacular.com/recipes/autocomplete?apiKey=${ApiKey}&number=25&query=${event.target.value}`;
+			const url = `https://api.spoonacular.com/recipes/autocomplete?apiKey=${ApiKey}&number=24&query=${event.target.value}`;
 			fetchRecipes(url, true);
 		}
 	};

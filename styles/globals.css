@@ -101,6 +101,7 @@ button {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	flex-direction: column;
 }
 
 .dish-container {
@@ -180,4 +181,24 @@ p a {
 	width: fit-content;
 	justify-content: center;
 	align-items: center;
+}
+.macro_bubbles {
+	width: 100%;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	position: relative;
+	padding-bottom: 5rem;
+}
+.bubble {
+	background-color: rgba(16, 230, 80, 0.836);
+	flex-direction: column;
+	border-style: solid;
+	border-radius: 50%;
+	width: 10rem;
+	height: 10rem;
+	display: flex;
+	margin-left: 5rem;
+	align-items: center;
+	justify-content: center;
 }
