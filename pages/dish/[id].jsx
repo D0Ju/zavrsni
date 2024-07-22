@@ -51,7 +51,7 @@ export default function Dish() {
 				</div>
 				<div className="bubble">
 					<h1>Protein</h1>
-					<p>{recipe.nutrition.nutrients[8].amount} g</p>
+					<p>{recipe.nutrition.nutrients[10].amount} g</p>
 				</div>
 			</div>
 		</div>
