@@ -19,7 +19,7 @@ export default function Dish() {
 
 	recipe.summary = recipe.summary.replaceAll("<a ", "<a target='_blank' ");
 
-	//nutritivne vrijednosti se nalaze na recipes.nutrition.nutrients  0, 1, 3, 8 (kcal, fat, carb, protein)
+	//nutritivne vrijednosti se nalaze na recipes.nutrition.nutrients  0, 1, 3, 10 (kcal, fat, carb, protein)
 
 	return (
 		<div className="flex_center_dish">
