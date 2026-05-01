@@ -8,6 +8,9 @@
     "start": "next start",
     "lint": "next lint"
   },
+  "engines": {
+    "node": "24.x"
+  },
   "dependencies": {
     "@next/font": "13.1.5",
     "framer-motion": "^8.5.4",
