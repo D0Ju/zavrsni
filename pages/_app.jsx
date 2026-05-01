@@ -1,13 +1,12 @@
 import Navbar from "@/components/navbar";
+import { FavoritesProvider } from "@/context/FavoritesContext";
 import "@/styles/globals.css";
 
 export default function App({ Component, pageProps }) {
-	return (
-		<>
-			<Navbar />
-			<div style={{ marginTop: "100px" }}>
-				<Component {...pageProps} />
-			</div>
-		</>
-	);
+  return (
+    <FavoritesProvider>
+      <Navbar />
+      <Component {...pageProps} />
+    </FavoritesProvider>
+  );
 }

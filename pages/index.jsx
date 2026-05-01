@@ -1,13 +1,16 @@
+import { useState } from "react";
+import HeroSection from "@/components/HeroSection";
 import OtherRecipes from "@/components/OtherRecipes";
 import Suggestions from "@/components/Suggestions";
+
 export default function Home() {
-	return (
-		<div>
-			<h2 id="Title-Suggestions">Suggestions</h2>
-			<div className="post-container">
-				<Suggestions />
-			</div>
-			<OtherRecipes />
-		</div>
-	);
+  const [searchQuery, setSearchQuery] = useState("");
+
+  return (
+    <>
+      <HeroSection onSearch={setSearchQuery} />
+      <Suggestions />
+      <OtherRecipes searchQuery={searchQuery} />
+    </>
+  );
 }

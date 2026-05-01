@@ -1,61 +1,67 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import React from "react";
-import OtherRecipes from "./OtherRecipes";
+import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 
 function Navbar() {
-	const router = useRouter();
+  const router = useRouter();
+  const [scrolled, setScrolled] = useState(false);
 
-	const ClickTest = (id) => {
-		const Scroll = () => {
-			var element = document.getElementById(id);
-			var headerOffset = 100;
-			var elementPosition = element.getBoundingClientRect().top;
-			var offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
-			window.scrollTo({
-				top: offsetPosition,
-				behavior: "smooth",
-			});
-		};
-		if (router.asPath === "/") {
-			Scroll();
-		} else {
-			router.push("/").then(() => {
-				setTimeout(() => {
-					Scroll();
-				}, 250);
-			});
-		}
-	};
+  const scrollToSection = (id) => {
+    const element = document.getElementById(id);
+    if (!element) return;
+    const offset = 80;
+    const top = element.getBoundingClientRect().top + window.pageYOffset - offset;
+    window.scrollTo({ top, behavior: "smooth" });
+  };
 
-	return (
-		<div className="nav-container">
-			<Link href={"/"}>
-				<h1 className="heading-nav">Dominik's cuisine</h1>
-			</Link>
-			<ul>
-				<li>
-					{" "}
-					<button
-						className="btn-nav"
-						onClick={() => ClickTest("Title-Suggestions")}
-					>
-						Suggestions
-					</button>
-				</li>
-				<li>
-					{" "}
-					<button
-						className="btn-nav"
-						onClick={() => ClickTest("Title-OtherRecipes")}
-					>
-						Other Recipes
-					</button>{" "}
-				</li>
-			</ul>
-		</div>
-	);
+  const handleNavClick = (id) => {
+    if (router.asPath !== "/") {
+      router.push("/").then(() => {
+        setTimeout(() => scrollToSection(id), 100);
+      });
+    } else {
+      scrollToSection(id);
+    }
+  };
+
+  return (
+    <motion.nav
+      className={`nav-container`}
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
+      style={{
+        boxShadow: scrolled ? "var(--shadow-md)" : "none",
+      }}
+    >
+      <Link href="/">
+        <span className="nav-logo">
+          Dominik<span>'s</span> cuisine
+        </span>
+      </Link>
+      <ul className="nav-links">
+        <li>
+          <button className="nav-link" onClick={() => handleNavClick("suggestions")}>
+            Suggestions
+          </button>
+        </li>
+        <li>
+          <button className="nav-link" onClick={() => handleNavClick("recipes")}>
+            Recipes
+          </button>
+        </li>
+      </ul>
+    </motion.nav>
+  );
 }
 
 export default Navbar;
